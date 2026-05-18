@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pink Blossom School</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body{
+      background: linear-gradient(135deg,#ffd6e8,#ffeaf4);
+      color:#444;
+    }
+
+    /* LOGIN PAGE */
+    .login-page{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background: linear-gradient(to right,#ff7eb3,#ffb6d9);
+    }
+
+    .login-container{
+      display:flex;
+      gap:30px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    .login-box{
+      background:white;
+      width:320px;
+      padding:30px;
+      border-radius:25px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.2);
+      transition:0.3s;
+    }
+
+    .login-box:hover{
+      transform:translateY(-5px);
+    }
+
+    .login-box h2{
+      text-align:center;
+      color:#ff3d87;
+      margin-bottom:20px;
+    }
+
+    .login-box input{
+      width:100%;
+      padding:12px;
+      margin:10px 0;
+      border:none;
+      border-radius:12px;
+      background:#ffe5f0;
+      outline:none;
+    }
+
+    .login-box button{
+      width:100%;
+      padding:12px;
+      border:none;
+      border-radius:12px;
+      background:#ff4f93;
+      color:white;
+      font-size:16px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .login-box button:hover{
+      background:#e91e63;
+    }
+
+    /* WEBSITE */
+    .website{
+      display:none;
+    }
+
+    header{
+      background:#ff4f93;
+      color:white;
+      padding:20px;
+      text-align:center;
+      box-shadow:0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    header h1{
+      font-size:40px;
+    }
+
+    nav{
+      margin-top:10px;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      margin:0 15px;
+      font-weight:bold;
+    }
+
+    .hero{
+      padding:60px 20px;
+      text-align:center;
+    }
+
+    .hero h2{
+      color:#ff2d7a;
+      font-size:42px;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      max-width:850px;
+      margin:auto;
+      line-height:1.8;
+      font-size:18px;
+    }
+
+    .container{
+      width:90%;
+      margin:auto;
+      padding:30px 0;
+    }
+
+    .card{
+      background:white;
+      padding:30px;
+      margin-bottom:30px;
+      border-radius:25px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .card h3{
+      color:#ff2d7a;
+      margin-bottom:20px;
+      font-size:30px;
+    }
+
+    /* SUBJECTS */
+    .subjects{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+    }
+
+    .subject{
+      background:#ffe4ef;
+      padding:20px;
+      border-radius:20px;
+      transition:0.3s;
+    }
+
+    .subject:hover{
+      background:#ffd0e2;
+      transform:scale(1.03);
+    }
+
+    .subject h4{
+      color:#e91e63;
+      margin-bottom:10px;
+    }
+
+    /* TABLE */
+    table{
+      width:100%;
+      border-collapse:collapse;
+    }
+
+    table th{
+      background:#ff4f93;
+      color:white;
+      padding:15px;
+    }
+
+    table td{
+      padding:12px;
+      background:#fff0f6;
+      text-align:center;
+    }
+
+    /* FOOTER */
+    footer{
+      background:#ff4f93;
+      color:white;
+      text-align:center;
+      padding:20px;
+      margin-top:30px;
+    }
+
+    /* BUTTON */
+    .logout{
+      margin-top:20px;
+      padding:10px 20px;
+      border:none;
+      border-radius:12px;
+      background:white;
+      color:#ff2d7a;
+      font-weight:bold;
+      cursor:pointer;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- LOGIN -->
+  <section class="login-page" id="loginPage">
+
+    <div class="login-container">
+
+      <div class="login-box">
+        <h2>🌸 Login Admin</h2>
+
+        <input type="text" placeholder="Username Admin">
+        <input type="password" placeholder="Password">
+
+        <button onclick="masukWebsite()">Masuk Admin</button>
+      </div>
+
+      <div class="login-box">
+        <h2>🎀 Login User</h2>
+
+        <input type="text" placeholder="Username User">
+        <input type="password" placeholder="Password">
+
+        <button onclick="masukWebsite()">Masuk User</button>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- WEBSITE -->
+  <section class="website" id="website">
+
+    <header>
+      <h1>🌸 Pink Blossom School 🌸</h1>
+      <p>Sekolah Modern, Cantik, dan Berprestasi</p>
+
+      <nav>
+        <a href="#">Beranda</a>
+        <a href="#">Tentang</a>
+        <a href="#">Pelajaran</a>
+        <a href="#">Data Siswa</a>
+        <a href="#">Kontak</a>
+      </nav>
+
+      <button class="logout" onclick="logout()">Logout</button>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <h2>Selamat Datang di Pink Blossom School</h2>
+
+      <p>
+        Pink Blossom School adalah sekolah modern dengan suasana belajar yang nyaman,
+        elegan, dan penuh kreativitas. Sekolah ini memiliki fasilitas lengkap,
+        guru profesional, laboratorium modern, perpustakaan digital,
+        dan banyak kegiatan menarik untuk mendukung prestasi siswa.
+        Dengan desain sekolah yang cantik dan nuansa pink yang lembut,
+        siswa akan merasa nyaman dan semangat belajar setiap hari.
+      </p>
+    </section>
+
+    <div class="container">
+
+      <!-- TENTANG -->
+      <div class="card">
+        <h3>🏫 Tentang Sekolah</h3>
+
+        <p>
+          Pink Blossom School berdiri sejak tahun 2012 dan telah menjadi salah satu
+          sekolah favorit dengan lebih dari 1200 siswa aktif.
+          Sekolah ini mengutamakan pendidikan karakter, teknologi,
+          dan kreativitas siswa agar siap menghadapi masa depan.
+        </p>
+
+        <br>
+
+        <ul>
+          <li>✨ Guru Profesional dan Ramah</li>
+          <li>✨ Laboratorium Komputer Modern</li>
+          <li>✨ Perpustakaan Digital</li>
+          <li>✨ Ruang Multimedia</li>
+          <li>✨ Ekstrakurikuler Lengkap</li>
+          <li>✨ Lingkungan Bersih dan Nyaman</li>
+        </ul>
+      </div>
+
+      <!-- MATA PELAJARAN -->
+      <div class="card">
+        <h3>📚 Mata Pelajaran</h3>
+
+        <div class="subjects">
+
+          <div class="subject">
+            <h4>Matematika</h4>
+            <p>Belajar aljabar, geometri, statistika, dan logika.</p>
+          </div>
+
+          <div class="subject">
+            <h4>Bahasa Indonesia</h4>
+            <p>Meningkatkan kemampuan membaca dan menulis.</p>
+          </div>
+
+          <div class="subject">
+            <h4>Bahasa Inggris</h4>
+            <p>Belajar speaking, listening, reading, dan writing.</p>
+          </div>
+
+          <div class="subject">
+            <h4>IPA</h4>
+            <p>Mempelajari biologi, fisika, dan kimia.</p>
+          </div>
+
+          <div class="subject">
+            <h4>IPS</h4>
+            <p>Belajar sejarah, ekonomi, dan geografi.</p>
+          </div>
+
+          <div class="subject">
+            <h4>Informatika</h4>
+            <p>Belajar coding, desain website, dan teknologi digital.</p>
+          </div>
+
+          <div class="subject">
+            <h4>Seni Budaya</h4>
+            <p>Mengembangkan kreativitas seni dan budaya.</p>
+          </div>
+
+          <div class="subject">
+            <h4>Olahraga</h4>
+            <p>Menjaga kesehatan dan kebugaran tubuh.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- DATA SISWA -->
+      <div class="card">
+        <h3>👩‍🎓 Data Siswa Berprestasi</h3>
+
+        <table>
+          <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Kelas</th>
+            <th>Prestasi</th>
+          </tr>
+
+          <tr>
+            <td>1</td>
+            <td>Alya Putri</td>
+            <td>X IPA 1</td>
+            <td>Juara Olimpiade Matematika</td>
+          </tr>
+
+          <tr>
+            <td>2</td>
+            <td>Nabila Rahma</td>
+            <td>XI IPS 2</td>
+            <td>Juara Debat Bahasa Inggris</td>
+          </tr>
+
+          <tr>
+            <td>3</td>
+            <td>Raka Pratama</td>
+            <td>XII IPA 3</td>
+            <td>Juara Coding Competition</td>
+          </tr>
+
+          <tr>
+            <td>4</td>
+            <td>Citra Lestari</td>
+            <td>XI IPA 1</td>
+            <td>Juara Seni Tari Nasional</td>
+          </tr>
+
+        </table>
+      </div>
+
+    </div>
+
+    <footer>
+      <p>© 2026 Pink Blossom School | Website Sekolah Tema Pink 🌸</p>
+    </footer>
+
+  </section>
+
+  <script>
+    function masukWebsite(){
+      document.getElementById("loginPage").style.display = "none";
+      document.getElementById("website").style.display = "block";
+    }
+
+    function logout(){
+      document.getElementById("website").style.display = "none";
+      document.getElementById("loginPage").style.display = "flex";
+    }
+  </script>
+
+</body>
+</html>
